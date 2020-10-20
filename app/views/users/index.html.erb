@@ -1,0 +1,25 @@
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont, "氏名" %>
+  <%= f.search_field :name_cont %>
+  <%= f.label :age_eq, "年齢" %>
+  <%= f.search_field :age_eq %>
+  <%= f.submit "検索" %>
+<% end %>
+
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>年齢</th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.age %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @users %>
